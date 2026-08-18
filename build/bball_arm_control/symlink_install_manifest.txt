@@ -1,0 +1,16 @@
+/home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/court.xml
+/home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/ament_index/resource_index/package_run_dependencies/bball_arm_control
+/home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/ament_index/resource_index/parent_prefix_path/bball_arm_control
+/home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/environment/ament_prefix_path.sh
+/home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/environment/ament_prefix_path.dsv
+/home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/environment/path.sh
+/home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/environment/path.dsv
+/home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/local_setup.bash
+/home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/local_setup.sh
+/home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/local_setup.zsh
+/home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/local_setup.dsv
+/home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/package.dsv
+/home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/ament_index/resource_index/packages/bball_arm_control
+/home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/cmake/bball_arm_controlConfig.cmake
+/home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/cmake/bball_arm_controlConfig-version.cmake
+/home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/package.xml

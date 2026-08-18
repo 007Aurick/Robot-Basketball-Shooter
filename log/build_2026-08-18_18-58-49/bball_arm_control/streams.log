@@ -1,0 +1,50 @@
+[0.060s] Invoking command in '/home/auric/ros2_ws/bball_arm_control/build/bball_arm_control': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/auric/ros2_ws/bball_arm_control -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/auric/ros2_ws/bball_arm_control/install/bball_arm_control
+[0.494s] -- The C compiler identification is GNU 11.4.0
+[1.130s] -- The CXX compiler identification is GNU 11.4.0
+[1.478s] -- Detecting C compiler ABI info
+[1.678s] -- Detecting C compiler ABI info - done
+[1.683s] -- Check for working C compiler: /usr/lib/ccache/cc - skipped
+[1.685s] -- Detecting C compile features
+[1.686s] -- Detecting C compile features - done
+[1.691s] -- Detecting CXX compiler ABI info
+[1.858s] -- Detecting CXX compiler ABI info - done
+[1.864s] -- Check for working CXX compiler: /usr/lib/ccache/c++ - skipped
+[1.865s] -- Detecting CXX compile features
+[1.865s] -- Detecting CXX compile features - done
+[1.890s] -- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)
+[2.327s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[2.414s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[2.484s] -- Found ament_lint_auto: 0.12.15 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[2.608s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[2.609s] -- Configured cppcheck include dirs: 
+[2.609s] -- Configured cppcheck exclude dirs and/or files: 
+[2.614s] -- Added test 'lint_cmake' to check CMake code style
+[2.631s] -- Added test 'uncrustify' to check C / C++ code style
+[2.631s] -- Configured uncrustify additional arguments: 
+[2.636s] -- Added test 'xmllint' to check XML markup files
+[2.643s] -- Configuring done
+[2.658s] -- Generating done
+[2.661s] -- Build files have been written to: /home/auric/ros2_ws/bball_arm_control/build/bball_arm_control
+[2.670s] Invoked command in '/home/auric/ros2_ws/bball_arm_control/build/bball_arm_control' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/auric/ros2_ws/bball_arm_control -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/auric/ros2_ws/bball_arm_control/install/bball_arm_control
+[2.673s] Invoking command in '/home/auric/ros2_ws/bball_arm_control/build/bball_arm_control': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/auric/ros2_ws/bball_arm_control/build/bball_arm_control -- -j16 -l16
+[2.729s] Invoked command in '/home/auric/ros2_ws/bball_arm_control/build/bball_arm_control' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/auric/ros2_ws/bball_arm_control/build/bball_arm_control -- -j16 -l16
+[2.746s] Invoking command in '/home/auric/ros2_ws/bball_arm_control/build/bball_arm_control': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/auric/ros2_ws/bball_arm_control/build/bball_arm_control
+[2.757s] -- Install configuration: ""
+[2.758s] -- Execute custom install script
+[2.760s] -- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/court.xml
+[2.775s] -- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/ament_index/resource_index/package_run_dependencies/bball_arm_control
+[2.789s] -- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/ament_index/resource_index/parent_prefix_path/bball_arm_control
+[2.807s] -- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/environment/ament_prefix_path.sh
+[2.821s] -- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/environment/ament_prefix_path.dsv
+[2.836s] -- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/environment/path.sh
+[2.850s] -- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/environment/path.dsv
+[2.867s] -- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/local_setup.bash
+[2.881s] -- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/local_setup.sh
+[2.894s] -- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/local_setup.zsh
+[2.906s] -- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/local_setup.dsv
+[2.916s] -- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/package.dsv
+[2.931s] -- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/ament_index/resource_index/packages/bball_arm_control
+[2.949s] -- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/cmake/bball_arm_controlConfig.cmake
+[2.963s] -- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/cmake/bball_arm_controlConfig-version.cmake
+[2.974s] -- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/package.xml
+[2.991s] Invoked command in '/home/auric/ros2_ws/bball_arm_control/build/bball_arm_control' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/auric/ros2_ws/bball_arm_control/build/bball_arm_control

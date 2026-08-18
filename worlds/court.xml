@@ -1,0 +1,292 @@
+<mujoco model="basketball_court">
+  <compiler angle="radian"/>
+  <option gravity="0 0 -9.81" timestep="0.002"/>
+
+  <default>
+    <geom friction="0.8 0.1 0.005" solref="0.01 1" solimp="0.9 0.95 0.001"/>
+  </default>
+
+  <asset>
+    <!-- Solid maple hardwood (no checker) -->
+    <material name="court_mat" rgba="0.78 0.58 0.32 1" reflectance="0.18" shininess="0.2"/>
+    <material name="paint_mat" rgba="0.72 0.38 0.16 1"/>
+    <material name="line_mat" rgba="0.96 0.96 0.97 1"/>
+    <material name="ball_mat" rgba="0.86 0.33 0.08 1"/>
+    <material name="seam_mat" rgba="0.05 0.05 0.05 1"/>
+    <material name="rim_mat" rgba="0.92 0.22 0.05 1"/>
+    <material name="backboard_mat" rgba="0.78 0.88 0.96 0.55"/>
+    <material name="board_frame_mat" rgba="0.15 0.15 0.18 1"/>
+    <material name="target_mat" rgba="0.95 0.95 0.98 1"/>
+    <material name="pole_mat" rgba="0.18 0.18 0.20 1"/>
+    <material name="pad_mat" rgba="0.12 0.12 0.35 1"/>
+    <material name="net_mat" rgba="1 1 1 0.95"/>
+  </asset>
+
+  <worldbody>
+    <light pos="0 -4 8" dir="0 0.15 -1" diffuse="1 1 1" specular="0.35 0.35 0.35"/>
+    <light pos="5 2 6" dir="-0.4 -0.2 -1" diffuse="0.45 0.45 0.45"/>
+    <light pos="-5 2 6" dir="0.4 -0.2 -1" diffuse="0.45 0.45 0.45"/>
+
+    <!-- Half-court floor -->
+    <geom name="floor" type="box" size="8.620 8.162 0.05"
+          pos="0 -5.443 -0.05" material="court_mat"
+          friction="1.0 0.1 0.01"/>
+
+    <!-- ===== Court markings (visual only) ===== -->
+    <geom name="paint_key" type="box" size="2.4385 2.8956 0.0015" pos="0 -1.1764 0.0015" material="paint_mat" contype="0" conaffinity="0"/>
+    <geom name="sideline_l" type="box" size="0.0250 7.2125 0.0020" pos="-7.6200 -5.4433 0.0030" material="line_mat" contype="0" conaffinity="0"/>
+    <geom name="sideline_r" type="box" size="0.0250 7.2125 0.0020" pos="7.6200 -5.4433 0.0030" material="line_mat" contype="0" conaffinity="0"/>
+    <geom name="baseline" type="box" size="7.6450 0.0250 0.0020" pos="0.0000 1.7192 0.0030" material="line_mat" contype="0" conaffinity="0"/>
+    <geom name="halfcourt_line" type="box" size="7.6450 0.0250 0.0020" pos="0.0000 -12.6058 0.0030" material="line_mat" contype="0" conaffinity="0"/>
+    <geom name="lane_l" type="box" size="0.0250 2.8956 0.0020" pos="-2.4385 -1.1764 0.0030" material="line_mat" contype="0" conaffinity="0"/>
+    <geom name="lane_r" type="box" size="0.0250 2.8956 0.0020" pos="2.4385 -1.1764 0.0030" material="line_mat" contype="0" conaffinity="0"/>
+    <geom name="ft_line" type="box" size="2.4385 0.0250 0.0020" pos="0.0000 -4.0720 0.0030" material="line_mat" contype="0" conaffinity="0"/>
+    <geom name="ft_arc_0" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-1.8288 -4.0720 0.0030  -1.8132 -4.3107 0.0030"/>
+    <geom name="ft_arc_1" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-1.8132 -4.3107 0.0030  -1.7665 -4.5453 0.0030"/>
+    <geom name="ft_arc_2" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-1.7665 -4.5453 0.0030  -1.6896 -4.7719 0.0030"/>
+    <geom name="ft_arc_3" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-1.6896 -4.7719 0.0030  -1.5838 -4.9864 0.0030"/>
+    <geom name="ft_arc_4" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-1.5838 -4.9864 0.0030  -1.4509 -5.1853 0.0030"/>
+    <geom name="ft_arc_5" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-1.4509 -5.1853 0.0030  -1.2932 -5.3652 0.0030"/>
+    <geom name="ft_arc_6" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-1.2932 -5.3652 0.0030  -1.1133 -5.5229 0.0030"/>
+    <geom name="ft_arc_7" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-1.1133 -5.5229 0.0030  -0.9144 -5.6558 0.0030"/>
+    <geom name="ft_arc_8" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-0.9144 -5.6558 0.0030  -0.6999 -5.7616 0.0030"/>
+    <geom name="ft_arc_9" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-0.6999 -5.7616 0.0030  -0.4733 -5.8385 0.0030"/>
+    <geom name="ft_arc_10" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-0.4733 -5.8385 0.0030  -0.2387 -5.8852 0.0030"/>
+    <geom name="ft_arc_11" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-0.2387 -5.8852 0.0030  -0.0000 -5.9008 0.0030"/>
+    <geom name="ft_arc_12" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-0.0000 -5.9008 0.0030  0.2387 -5.8852 0.0030"/>
+    <geom name="ft_arc_13" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="0.2387 -5.8852 0.0030  0.4733 -5.8385 0.0030"/>
+    <geom name="ft_arc_14" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="0.4733 -5.8385 0.0030  0.6999 -5.7616 0.0030"/>
+    <geom name="ft_arc_15" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="0.6999 -5.7616 0.0030  0.9144 -5.6558 0.0030"/>
+    <geom name="ft_arc_16" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="0.9144 -5.6558 0.0030  1.1133 -5.5229 0.0030"/>
+    <geom name="ft_arc_17" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="1.1133 -5.5229 0.0030  1.2932 -5.3652 0.0030"/>
+    <geom name="ft_arc_18" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="1.2932 -5.3652 0.0030  1.4509 -5.1853 0.0030"/>
+    <geom name="ft_arc_19" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="1.4509 -5.1853 0.0030  1.5838 -4.9864 0.0030"/>
+    <geom name="ft_arc_20" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="1.5838 -4.9864 0.0030  1.6896 -4.7719 0.0030"/>
+    <geom name="ft_arc_21" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="1.6896 -4.7719 0.0030  1.7665 -4.5453 0.0030"/>
+    <geom name="ft_arc_22" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="1.7665 -4.5453 0.0030  1.8132 -4.3107 0.0030"/>
+    <geom name="ft_arc_23" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="1.8132 -4.3107 0.0030  1.8288 -4.0720 0.0030"/>
+    <geom name="ra_arc_0" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-1.2192 0.0000 0.0030  -1.1958 -0.2379 0.0030"/>
+    <geom name="ra_arc_1" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-1.1958 -0.2379 0.0030  -1.1264 -0.4666 0.0030"/>
+    <geom name="ra_arc_2" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-1.1264 -0.4666 0.0030  -1.0137 -0.6774 0.0030"/>
+    <geom name="ra_arc_3" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-1.0137 -0.6774 0.0030  -0.8621 -0.8621 0.0030"/>
+    <geom name="ra_arc_4" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-0.8621 -0.8621 0.0030  -0.6774 -1.0137 0.0030"/>
+    <geom name="ra_arc_5" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-0.6774 -1.0137 0.0030  -0.4666 -1.1264 0.0030"/>
+    <geom name="ra_arc_6" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-0.4666 -1.1264 0.0030  -0.2379 -1.1958 0.0030"/>
+    <geom name="ra_arc_7" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-0.2379 -1.1958 0.0030  -0.0000 -1.2192 0.0030"/>
+    <geom name="ra_arc_8" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-0.0000 -1.2192 0.0030  0.2379 -1.1958 0.0030"/>
+    <geom name="ra_arc_9" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="0.2379 -1.1958 0.0030  0.4666 -1.1264 0.0030"/>
+    <geom name="ra_arc_10" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="0.4666 -1.1264 0.0030  0.6774 -1.0137 0.0030"/>
+    <geom name="ra_arc_11" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="0.6774 -1.0137 0.0030  0.8621 -0.8621 0.0030"/>
+    <geom name="ra_arc_12" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="0.8621 -0.8621 0.0030  1.0137 -0.6774 0.0030"/>
+    <geom name="ra_arc_13" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="1.0137 -0.6774 0.0030  1.1264 -0.4666 0.0030"/>
+    <geom name="ra_arc_14" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="1.1264 -0.4666 0.0030  1.1958 -0.2379 0.0030"/>
+    <geom name="ra_arc_15" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="1.1958 -0.2379 0.0030  1.2192 -0.0000 0.0030"/>
+    <geom name="three_corner_l" type="box" size="0.0250 2.2232 0.0020" pos="-6.7056 -0.5040 0.0030" material="line_mat" contype="0" conaffinity="0"/>
+    <geom name="three_corner_r" type="box" size="0.0250 2.2232 0.0020" pos="6.7056 -0.5040 0.0030" material="line_mat" contype="0" conaffinity="0"/>
+    <geom name="three_arc_0" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-6.7056 -2.7273 0.0030  -6.5324 -3.1194 0.0030"/>
+    <geom name="three_arc_1" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-6.5324 -3.1194 0.0030  -6.3363 -3.5006 0.0030"/>
+    <geom name="three_arc_2" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-6.3363 -3.5006 0.0030  -6.1180 -3.8695 0.0030"/>
+    <geom name="three_arc_3" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-6.1180 -3.8695 0.0030  -5.8782 -4.2249 0.0030"/>
+    <geom name="three_arc_4" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-5.8782 -4.2249 0.0030  -5.6179 -4.5654 0.0030"/>
+    <geom name="three_arc_5" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-5.6179 -4.5654 0.0030  -5.3378 -4.8899 0.0030"/>
+    <geom name="three_arc_6" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-5.3378 -4.8899 0.0030  -5.0390 -5.1973 0.0030"/>
+    <geom name="three_arc_7" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-5.0390 -5.1973 0.0030  -4.7225 -5.4864 0.0030"/>
+    <geom name="three_arc_8" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-4.7225 -5.4864 0.0030  -4.3895 -5.7564 0.0030"/>
+    <geom name="three_arc_9" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-4.3895 -5.7564 0.0030  -4.0411 -6.0061 0.0030"/>
+    <geom name="three_arc_10" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-4.0411 -6.0061 0.0030  -3.6785 -6.2347 0.0030"/>
+    <geom name="three_arc_11" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-3.6785 -6.2347 0.0030  -3.3030 -6.4415 0.0030"/>
+    <geom name="three_arc_12" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-3.3030 -6.4415 0.0030  -2.9159 -6.6258 0.0030"/>
+    <geom name="three_arc_13" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-2.9159 -6.6258 0.0030  -2.5186 -6.7867 0.0030"/>
+    <geom name="three_arc_14" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-2.5186 -6.7867 0.0030  -2.1125 -6.9239 0.0030"/>
+    <geom name="three_arc_15" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-2.1125 -6.9239 0.0030  -1.6989 -7.0368 0.0030"/>
+    <geom name="three_arc_16" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-1.6989 -7.0368 0.0030  -1.2794 -7.1250 0.0030"/>
+    <geom name="three_arc_17" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-1.2794 -7.1250 0.0030  -0.8555 -7.1883 0.0030"/>
+    <geom name="three_arc_18" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-0.8555 -7.1883 0.0030  -0.4285 -7.2263 0.0030"/>
+    <geom name="three_arc_19" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-0.4285 -7.2263 0.0030  0.0000 -7.2390 0.0030"/>
+    <geom name="three_arc_20" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="0.0000 -7.2390 0.0030  0.4285 -7.2263 0.0030"/>
+    <geom name="three_arc_21" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="0.4285 -7.2263 0.0030  0.8555 -7.1883 0.0030"/>
+    <geom name="three_arc_22" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="0.8555 -7.1883 0.0030  1.2794 -7.1250 0.0030"/>
+    <geom name="three_arc_23" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="1.2794 -7.1250 0.0030  1.6989 -7.0368 0.0030"/>
+    <geom name="three_arc_24" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="1.6989 -7.0368 0.0030  2.1125 -6.9239 0.0030"/>
+    <geom name="three_arc_25" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="2.1125 -6.9239 0.0030  2.5186 -6.7867 0.0030"/>
+    <geom name="three_arc_26" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="2.5186 -6.7867 0.0030  2.9159 -6.6258 0.0030"/>
+    <geom name="three_arc_27" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="2.9159 -6.6258 0.0030  3.3030 -6.4415 0.0030"/>
+    <geom name="three_arc_28" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="3.3030 -6.4415 0.0030  3.6785 -6.2347 0.0030"/>
+    <geom name="three_arc_29" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="3.6785 -6.2347 0.0030  4.0411 -6.0061 0.0030"/>
+    <geom name="three_arc_30" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="4.0411 -6.0061 0.0030  4.3895 -5.7564 0.0030"/>
+    <geom name="three_arc_31" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="4.3895 -5.7564 0.0030  4.7225 -5.4864 0.0030"/>
+    <geom name="three_arc_32" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="4.7225 -5.4864 0.0030  5.0390 -5.1973 0.0030"/>
+    <geom name="three_arc_33" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="5.0390 -5.1973 0.0030  5.3378 -4.8899 0.0030"/>
+    <geom name="three_arc_34" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="5.3378 -4.8899 0.0030  5.6179 -4.5654 0.0030"/>
+    <geom name="three_arc_35" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="5.6179 -4.5654 0.0030  5.8782 -4.2249 0.0030"/>
+    <geom name="three_arc_36" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="5.8782 -4.2249 0.0030  6.1180 -3.8695 0.0030"/>
+    <geom name="three_arc_37" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="6.1180 -3.8695 0.0030  6.3363 -3.5006 0.0030"/>
+    <geom name="three_arc_38" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="6.3363 -3.5006 0.0030  6.5324 -3.1194 0.0030"/>
+    <geom name="three_arc_39" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="6.5324 -3.1194 0.0030  6.7056 -2.7273 0.0030"/>
+    <geom name="center_arc_0" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="1.8288 -12.6058 0.0030  1.7937 -12.2490 0.0030"/>
+    <geom name="center_arc_1" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="1.7937 -12.2490 0.0030  1.6896 -11.9059 0.0030"/>
+    <geom name="center_arc_2" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="1.6896 -11.9059 0.0030  1.5206 -11.5898 0.0030"/>
+    <geom name="center_arc_3" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="1.5206 -11.5898 0.0030  1.2932 -11.3126 0.0030"/>
+    <geom name="center_arc_4" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="1.2932 -11.3126 0.0030  1.0160 -11.0852 0.0030"/>
+    <geom name="center_arc_5" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="1.0160 -11.0852 0.0030  0.6999 -10.9162 0.0030"/>
+    <geom name="center_arc_6" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="0.6999 -10.9162 0.0030  0.3568 -10.8121 0.0030"/>
+    <geom name="center_arc_7" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="0.3568 -10.8121 0.0030  0.0000 -10.7770 0.0030"/>
+    <geom name="center_arc_8" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="0.0000 -10.7770 0.0030  -0.3568 -10.8121 0.0030"/>
+    <geom name="center_arc_9" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-0.3568 -10.8121 0.0030  -0.6999 -10.9162 0.0030"/>
+    <geom name="center_arc_10" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-0.6999 -10.9162 0.0030  -1.0160 -11.0852 0.0030"/>
+    <geom name="center_arc_11" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-1.0160 -11.0852 0.0030  -1.2932 -11.3126 0.0030"/>
+    <geom name="center_arc_12" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-1.2932 -11.3126 0.0030  -1.5206 -11.5898 0.0030"/>
+    <geom name="center_arc_13" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-1.5206 -11.5898 0.0030  -1.6896 -11.9059 0.0030"/>
+    <geom name="center_arc_14" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-1.6896 -11.9059 0.0030  -1.7937 -12.2490 0.0030"/>
+    <geom name="center_arc_15" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-1.7937 -12.2490 0.0030  -1.8288 -12.6058 0.0030"/>
+    <geom name="center_arc_16" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-1.8288 -12.6058 0.0030  -1.7937 -12.9626 0.0030"/>
+    <geom name="center_arc_17" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-1.7937 -12.9626 0.0030  -1.6896 -13.3057 0.0030"/>
+    <geom name="center_arc_18" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-1.6896 -13.3057 0.0030  -1.5206 -13.6218 0.0030"/>
+    <geom name="center_arc_19" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-1.5206 -13.6218 0.0030  -1.2932 -13.8990 0.0030"/>
+    <geom name="center_arc_20" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-1.2932 -13.8990 0.0030  -1.0160 -14.1264 0.0030"/>
+    <geom name="center_arc_21" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-1.0160 -14.1264 0.0030  -0.6999 -14.2954 0.0030"/>
+    <geom name="center_arc_22" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-0.6999 -14.2954 0.0030  -0.3568 -14.3995 0.0030"/>
+    <geom name="center_arc_23" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-0.3568 -14.3995 0.0030  -0.0000 -14.4346 0.0030"/>
+    <geom name="center_arc_24" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="-0.0000 -14.4346 0.0030  0.3568 -14.3995 0.0030"/>
+    <geom name="center_arc_25" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="0.3568 -14.3995 0.0030  0.6999 -14.2954 0.0030"/>
+    <geom name="center_arc_26" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="0.6999 -14.2954 0.0030  1.0160 -14.1264 0.0030"/>
+    <geom name="center_arc_27" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="1.0160 -14.1264 0.0030  1.2932 -13.8990 0.0030"/>
+    <geom name="center_arc_28" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="1.2932 -13.8990 0.0030  1.5206 -13.6218 0.0030"/>
+    <geom name="center_arc_29" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="1.5206 -13.6218 0.0030  1.6896 -13.3057 0.0030"/>
+    <geom name="center_arc_30" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="1.6896 -13.3057 0.0030  1.7937 -12.9626 0.0030"/>
+    <geom name="center_arc_31" type="capsule" size="0.0250" material="line_mat" contype="0" conaffinity="0" fromto="1.7937 -12.9626 0.0030  1.8288 -12.6058 0.0030"/>
+    <geom name="hash_l_0" type="box" size="0.1500 0.0250 0.0020" pos="-2.5885 -3.1580 0.0030" material="line_mat" contype="0" conaffinity="0"/>
+    <geom name="hash_l_1" type="box" size="0.1500 0.0250 0.0020" pos="-2.5885 -2.2430 0.0030" material="line_mat" contype="0" conaffinity="0"/>
+    <geom name="hash_l_2" type="box" size="0.1500 0.0250 0.0020" pos="-2.5885 -1.3290 0.0030" material="line_mat" contype="0" conaffinity="0"/>
+    <geom name="hash_l_3" type="box" size="0.1500 0.0250 0.0020" pos="-2.5885 -0.4140 0.0030" material="line_mat" contype="0" conaffinity="0"/>
+    <geom name="hash_r_0" type="box" size="0.1500 0.0250 0.0020" pos="2.5885 -3.1580 0.0030" material="line_mat" contype="0" conaffinity="0"/>
+    <geom name="hash_r_1" type="box" size="0.1500 0.0250 0.0020" pos="2.5885 -2.2430 0.0030" material="line_mat" contype="0" conaffinity="0"/>
+    <geom name="hash_r_2" type="box" size="0.1500 0.0250 0.0020" pos="2.5885 -1.3290 0.0030" material="line_mat" contype="0" conaffinity="0"/>
+    <geom name="hash_r_3" type="box" size="0.1500 0.0250 0.0020" pos="2.5885 -0.4140 0.0030" material="line_mat" contype="0" conaffinity="0"/>
+
+    <!-- Bigger demo ball at free-throw line (still fits rim) -->
+    <body name="basketball" pos="0 -4.0720 0.2">
+      <freejoint/>
+      <geom name="ball_geom" type="sphere" size="0.2" mass="0.8"
+            material="ball_mat" friction="0.95 0.12 0.01"
+            solref="0.02 1" solimp="0.9 0.95 0.001"/>
+      <geom name="seam_eq_0" type="capsule" size="0.004" material="seam_mat" contype="0" conaffinity="0" fromto="0.1980 0.0000 0  0.1829 0.0758 0"/>
+      <geom name="seam_eq_1" type="capsule" size="0.004" material="seam_mat" contype="0" conaffinity="0" fromto="0.1829 0.0758 0  0.1400 0.1400 0"/>
+      <geom name="seam_eq_2" type="capsule" size="0.004" material="seam_mat" contype="0" conaffinity="0" fromto="0.1400 0.1400 0  0.0758 0.1829 0"/>
+      <geom name="seam_eq_3" type="capsule" size="0.004" material="seam_mat" contype="0" conaffinity="0" fromto="0.0758 0.1829 0  0.0000 0.1980 0"/>
+      <geom name="seam_eq_4" type="capsule" size="0.004" material="seam_mat" contype="0" conaffinity="0" fromto="0.0000 0.1980 0  -0.0758 0.1829 0"/>
+      <geom name="seam_eq_5" type="capsule" size="0.004" material="seam_mat" contype="0" conaffinity="0" fromto="-0.0758 0.1829 0  -0.1400 0.1400 0"/>
+      <geom name="seam_eq_6" type="capsule" size="0.004" material="seam_mat" contype="0" conaffinity="0" fromto="-0.1400 0.1400 0  -0.1829 0.0758 0"/>
+      <geom name="seam_eq_7" type="capsule" size="0.004" material="seam_mat" contype="0" conaffinity="0" fromto="-0.1829 0.0758 0  -0.1980 0.0000 0"/>
+      <geom name="seam_eq_8" type="capsule" size="0.004" material="seam_mat" contype="0" conaffinity="0" fromto="-0.1980 0.0000 0  -0.1829 -0.0758 0"/>
+      <geom name="seam_eq_9" type="capsule" size="0.004" material="seam_mat" contype="0" conaffinity="0" fromto="-0.1829 -0.0758 0  -0.1400 -0.1400 0"/>
+      <geom name="seam_eq_10" type="capsule" size="0.004" material="seam_mat" contype="0" conaffinity="0" fromto="-0.1400 -0.1400 0  -0.0758 -0.1829 0"/>
+      <geom name="seam_eq_11" type="capsule" size="0.004" material="seam_mat" contype="0" conaffinity="0" fromto="-0.0758 -0.1829 0  -0.0000 -0.1980 0"/>
+      <geom name="seam_eq_12" type="capsule" size="0.004" material="seam_mat" contype="0" conaffinity="0" fromto="-0.0000 -0.1980 0  0.0758 -0.1829 0"/>
+      <geom name="seam_eq_13" type="capsule" size="0.004" material="seam_mat" contype="0" conaffinity="0" fromto="0.0758 -0.1829 0  0.1400 -0.1400 0"/>
+      <geom name="seam_eq_14" type="capsule" size="0.004" material="seam_mat" contype="0" conaffinity="0" fromto="0.1400 -0.1400 0  0.1829 -0.0758 0"/>
+      <geom name="seam_eq_15" type="capsule" size="0.004" material="seam_mat" contype="0" conaffinity="0" fromto="0.1829 -0.0758 0  0.1980 -0.0000 0"/>
+      <geom name="seam_mer_0" type="capsule" size="0.004" material="seam_mat" contype="0" conaffinity="0" fromto="0.1980 0 0.0000  0.1829 0 0.0758"/>
+      <geom name="seam_mer_1" type="capsule" size="0.004" material="seam_mat" contype="0" conaffinity="0" fromto="0.1829 0 0.0758  0.1400 0 0.1400"/>
+      <geom name="seam_mer_2" type="capsule" size="0.004" material="seam_mat" contype="0" conaffinity="0" fromto="0.1400 0 0.1400  0.0758 0 0.1829"/>
+      <geom name="seam_mer_3" type="capsule" size="0.004" material="seam_mat" contype="0" conaffinity="0" fromto="0.0758 0 0.1829  0.0000 0 0.1980"/>
+      <geom name="seam_mer_4" type="capsule" size="0.004" material="seam_mat" contype="0" conaffinity="0" fromto="0.0000 0 0.1980  -0.0758 0 0.1829"/>
+      <geom name="seam_mer_5" type="capsule" size="0.004" material="seam_mat" contype="0" conaffinity="0" fromto="-0.0758 0 0.1829  -0.1400 0 0.1400"/>
+      <geom name="seam_mer_6" type="capsule" size="0.004" material="seam_mat" contype="0" conaffinity="0" fromto="-0.1400 0 0.1400  -0.1829 0 0.0758"/>
+      <geom name="seam_mer_7" type="capsule" size="0.004" material="seam_mat" contype="0" conaffinity="0" fromto="-0.1829 0 0.0758  -0.1980 0 0.0000"/>
+      <geom name="seam_mer_8" type="capsule" size="0.004" material="seam_mat" contype="0" conaffinity="0" fromto="-0.1980 0 0.0000  -0.1829 0 -0.0758"/>
+      <geom name="seam_mer_9" type="capsule" size="0.004" material="seam_mat" contype="0" conaffinity="0" fromto="-0.1829 0 -0.0758  -0.1400 0 -0.1400"/>
+      <geom name="seam_mer_10" type="capsule" size="0.004" material="seam_mat" contype="0" conaffinity="0" fromto="-0.1400 0 -0.1400  -0.0758 0 -0.1829"/>
+      <geom name="seam_mer_11" type="capsule" size="0.004" material="seam_mat" contype="0" conaffinity="0" fromto="-0.0758 0 -0.1829  -0.0000 0 -0.1980"/>
+      <geom name="seam_mer_12" type="capsule" size="0.004" material="seam_mat" contype="0" conaffinity="0" fromto="-0.0000 0 -0.1980  0.0758 0 -0.1829"/>
+      <geom name="seam_mer_13" type="capsule" size="0.004" material="seam_mat" contype="0" conaffinity="0" fromto="0.0758 0 -0.1829  0.1400 0 -0.1400"/>
+      <geom name="seam_mer_14" type="capsule" size="0.004" material="seam_mat" contype="0" conaffinity="0" fromto="0.1400 0 -0.1400  0.1829 0 -0.0758"/>
+      <geom name="seam_mer_15" type="capsule" size="0.004" material="seam_mat" contype="0" conaffinity="0" fromto="0.1829 0 -0.0758  0.1980 0 -0.0000"/>
+    </body>
+
+    <body name="hoop" pos="0 0 0">
+      <geom name="pole_pad" type="cylinder" size="0.35 0.20" pos="0 0.95 0.20"
+            material="pad_mat"/>
+      <geom name="pole" type="cylinder" size="0.06 1.60" pos="0 0.95 1.80"
+            material="pole_mat"/>
+      <geom name="pole_arm" type="box" size="0.04 0.18 0.04" pos="0 0.78 3.35"
+            material="pole_mat"/>
+      <geom name="pole_mount" type="box" size="0.20 0.03 0.25" pos="0 0.58 3.35"
+            material="pole_mat"/>
+
+      <geom name="backboard" type="box" size="0.915 0.02 0.535" pos="0 0.520 3.50"
+            material="backboard_mat"/>
+      <geom name="board_frame" type="box" size="0.935 0.025 0.555" pos="0 0.555 3.50"
+            material="board_frame_mat"/>
+      <geom name="target_outer" type="box" size="0.305 0.002 0.230" pos="0 0.499 3.42"
+            material="target_mat" contype="0" conaffinity="0"/>
+      <geom name="target_inner" type="box" size="0.280 0.0025 0.205" pos="0 0.498 3.42"
+            material="backboard_mat" contype="0" conaffinity="0"/>
+
+      <body name="rim" pos="0 0 3.05">
+        <geom name="rim_0" type="capsule" size="0.014" material="rim_mat" fromto="0.3200 0.0000 0  0.3091 0.0828 0"/>
+        <geom name="rim_1" type="capsule" size="0.014" material="rim_mat" fromto="0.3091 0.0828 0  0.2771 0.1600 0"/>
+        <geom name="rim_2" type="capsule" size="0.014" material="rim_mat" fromto="0.2771 0.1600 0  0.2263 0.2263 0"/>
+        <geom name="rim_3" type="capsule" size="0.014" material="rim_mat" fromto="0.2263 0.2263 0  0.1600 0.2771 0"/>
+        <geom name="rim_4" type="capsule" size="0.014" material="rim_mat" fromto="0.1600 0.2771 0  0.0828 0.3091 0"/>
+        <geom name="rim_5" type="capsule" size="0.014" material="rim_mat" fromto="0.0828 0.3091 0  0.0000 0.3200 0"/>
+        <geom name="rim_6" type="capsule" size="0.014" material="rim_mat" fromto="0.0000 0.3200 0  -0.0828 0.3091 0"/>
+        <geom name="rim_7" type="capsule" size="0.014" material="rim_mat" fromto="-0.0828 0.3091 0  -0.1600 0.2771 0"/>
+        <geom name="rim_8" type="capsule" size="0.014" material="rim_mat" fromto="-0.1600 0.2771 0  -0.2263 0.2263 0"/>
+        <geom name="rim_9" type="capsule" size="0.014" material="rim_mat" fromto="-0.2263 0.2263 0  -0.2771 0.1600 0"/>
+        <geom name="rim_10" type="capsule" size="0.014" material="rim_mat" fromto="-0.2771 0.1600 0  -0.3091 0.0828 0"/>
+        <geom name="rim_11" type="capsule" size="0.014" material="rim_mat" fromto="-0.3091 0.0828 0  -0.3200 0.0000 0"/>
+        <geom name="rim_12" type="capsule" size="0.014" material="rim_mat" fromto="-0.3200 0.0000 0  -0.3091 -0.0828 0"/>
+        <geom name="rim_13" type="capsule" size="0.014" material="rim_mat" fromto="-0.3091 -0.0828 0  -0.2771 -0.1600 0"/>
+        <geom name="rim_14" type="capsule" size="0.014" material="rim_mat" fromto="-0.2771 -0.1600 0  -0.2263 -0.2263 0"/>
+        <geom name="rim_15" type="capsule" size="0.014" material="rim_mat" fromto="-0.2263 -0.2263 0  -0.1600 -0.2771 0"/>
+        <geom name="rim_16" type="capsule" size="0.014" material="rim_mat" fromto="-0.1600 -0.2771 0  -0.0828 -0.3091 0"/>
+        <geom name="rim_17" type="capsule" size="0.014" material="rim_mat" fromto="-0.0828 -0.3091 0  -0.0000 -0.3200 0"/>
+        <geom name="rim_18" type="capsule" size="0.014" material="rim_mat" fromto="-0.0000 -0.3200 0  0.0828 -0.3091 0"/>
+        <geom name="rim_19" type="capsule" size="0.014" material="rim_mat" fromto="0.0828 -0.3091 0  0.1600 -0.2771 0"/>
+        <geom name="rim_20" type="capsule" size="0.014" material="rim_mat" fromto="0.1600 -0.2771 0  0.2263 -0.2263 0"/>
+        <geom name="rim_21" type="capsule" size="0.014" material="rim_mat" fromto="0.2263 -0.2263 0  0.2771 -0.1600 0"/>
+        <geom name="rim_22" type="capsule" size="0.014" material="rim_mat" fromto="0.2771 -0.1600 0  0.3091 -0.0828 0"/>
+        <geom name="rim_23" type="capsule" size="0.014" material="rim_mat" fromto="0.3091 -0.0828 0  0.3200 -0.0000 0"/>
+        <geom name="rim_bracket" type="box" size="0.05 0.0900 0.012"
+              pos="0 0.4100 0" material="rim_mat"/>
+        <geom name="net_0" type="capsule" size="0.008" material="net_mat" contype="0" conaffinity="0" fromto="0.3200 0.0000 0  0.1760 0.0000 -0.55"/>
+        <geom name="net_1" type="capsule" size="0.008" material="net_mat" contype="0" conaffinity="0" fromto="0.2771 0.1600 0  0.1524 0.0880 -0.55"/>
+        <geom name="net_2" type="capsule" size="0.008" material="net_mat" contype="0" conaffinity="0" fromto="0.1600 0.2771 0  0.0880 0.1524 -0.55"/>
+        <geom name="net_3" type="capsule" size="0.008" material="net_mat" contype="0" conaffinity="0" fromto="0.0000 0.3200 0  0.0000 0.1760 -0.55"/>
+        <geom name="net_4" type="capsule" size="0.008" material="net_mat" contype="0" conaffinity="0" fromto="-0.1600 0.2771 0  -0.0880 0.1524 -0.55"/>
+        <geom name="net_5" type="capsule" size="0.008" material="net_mat" contype="0" conaffinity="0" fromto="-0.2771 0.1600 0  -0.1524 0.0880 -0.55"/>
+        <geom name="net_6" type="capsule" size="0.008" material="net_mat" contype="0" conaffinity="0" fromto="-0.3200 0.0000 0  -0.1760 0.0000 -0.55"/>
+        <geom name="net_7" type="capsule" size="0.008" material="net_mat" contype="0" conaffinity="0" fromto="-0.2771 -0.1600 0  -0.1524 -0.0880 -0.55"/>
+        <geom name="net_8" type="capsule" size="0.008" material="net_mat" contype="0" conaffinity="0" fromto="-0.1600 -0.2771 0  -0.0880 -0.1524 -0.55"/>
+        <geom name="net_9" type="capsule" size="0.008" material="net_mat" contype="0" conaffinity="0" fromto="-0.0000 -0.3200 0  -0.0000 -0.1760 -0.55"/>
+        <geom name="net_10" type="capsule" size="0.008" material="net_mat" contype="0" conaffinity="0" fromto="0.1600 -0.2771 0  0.0880 -0.1524 -0.55"/>
+        <geom name="net_11" type="capsule" size="0.008" material="net_mat" contype="0" conaffinity="0" fromto="0.2771 -0.1600 0  0.1524 -0.0880 -0.55"/>
+        <geom name="net_mid_0" type="capsule" size="0.006" material="net_mat" contype="0" conaffinity="0" fromto="0.2624 0.0000 -0.22  0.2272 0.1312 -0.22"/>
+        <geom name="net_mid_1" type="capsule" size="0.006" material="net_mat" contype="0" conaffinity="0" fromto="0.2272 0.1312 -0.22  0.1312 0.2272 -0.22"/>
+        <geom name="net_mid_2" type="capsule" size="0.006" material="net_mat" contype="0" conaffinity="0" fromto="0.1312 0.2272 -0.22  0.0000 0.2624 -0.22"/>
+        <geom name="net_mid_3" type="capsule" size="0.006" material="net_mat" contype="0" conaffinity="0" fromto="0.0000 0.2624 -0.22  -0.1312 0.2272 -0.22"/>
+        <geom name="net_mid_4" type="capsule" size="0.006" material="net_mat" contype="0" conaffinity="0" fromto="-0.1312 0.2272 -0.22  -0.2272 0.1312 -0.22"/>
+        <geom name="net_mid_5" type="capsule" size="0.006" material="net_mat" contype="0" conaffinity="0" fromto="-0.2272 0.1312 -0.22  -0.2624 0.0000 -0.22"/>
+        <geom name="net_mid_6" type="capsule" size="0.006" material="net_mat" contype="0" conaffinity="0" fromto="-0.2624 0.0000 -0.22  -0.2272 -0.1312 -0.22"/>
+        <geom name="net_mid_7" type="capsule" size="0.006" material="net_mat" contype="0" conaffinity="0" fromto="-0.2272 -0.1312 -0.22  -0.1312 -0.2272 -0.22"/>
+        <geom name="net_mid_8" type="capsule" size="0.006" material="net_mat" contype="0" conaffinity="0" fromto="-0.1312 -0.2272 -0.22  -0.0000 -0.2624 -0.22"/>
+        <geom name="net_mid_9" type="capsule" size="0.006" material="net_mat" contype="0" conaffinity="0" fromto="-0.0000 -0.2624 -0.22  0.1312 -0.2272 -0.22"/>
+        <geom name="net_mid_10" type="capsule" size="0.006" material="net_mat" contype="0" conaffinity="0" fromto="0.1312 -0.2272 -0.22  0.2272 -0.1312 -0.22"/>
+        <geom name="net_mid_11" type="capsule" size="0.006" material="net_mat" contype="0" conaffinity="0" fromto="0.2272 -0.1312 -0.22  0.2624 -0.0000 -0.22"/>
+        <geom name="net_bot_0" type="capsule" size="0.006" material="net_mat" contype="0" conaffinity="0" fromto="0.1760 0.0000 -0.55  0.1524 0.0880 -0.55"/>
+        <geom name="net_bot_1" type="capsule" size="0.006" material="net_mat" contype="0" conaffinity="0" fromto="0.1524 0.0880 -0.55  0.0880 0.1524 -0.55"/>
+        <geom name="net_bot_2" type="capsule" size="0.006" material="net_mat" contype="0" conaffinity="0" fromto="0.0880 0.1524 -0.55  0.0000 0.1760 -0.55"/>
+        <geom name="net_bot_3" type="capsule" size="0.006" material="net_mat" contype="0" conaffinity="0" fromto="0.0000 0.1760 -0.55  -0.0880 0.1524 -0.55"/>
+        <geom name="net_bot_4" type="capsule" size="0.006" material="net_mat" contype="0" conaffinity="0" fromto="-0.0880 0.1524 -0.55  -0.1524 0.0880 -0.55"/>
+        <geom name="net_bot_5" type="capsule" size="0.006" material="net_mat" contype="0" conaffinity="0" fromto="-0.1524 0.0880 -0.55  -0.1760 0.0000 -0.55"/>
+        <geom name="net_bot_6" type="capsule" size="0.006" material="net_mat" contype="0" conaffinity="0" fromto="-0.1760 0.0000 -0.55  -0.1524 -0.0880 -0.55"/>
+        <geom name="net_bot_7" type="capsule" size="0.006" material="net_mat" contype="0" conaffinity="0" fromto="-0.1524 -0.0880 -0.55  -0.0880 -0.1524 -0.55"/>
+        <geom name="net_bot_8" type="capsule" size="0.006" material="net_mat" contype="0" conaffinity="0" fromto="-0.0880 -0.1524 -0.55  -0.0000 -0.1760 -0.55"/>
+        <geom name="net_bot_9" type="capsule" size="0.006" material="net_mat" contype="0" conaffinity="0" fromto="-0.0000 -0.1760 -0.55  0.0880 -0.1524 -0.55"/>
+        <geom name="net_bot_10" type="capsule" size="0.006" material="net_mat" contype="0" conaffinity="0" fromto="0.0880 -0.1524 -0.55  0.1524 -0.0880 -0.55"/>
+        <geom name="net_bot_11" type="capsule" size="0.006" material="net_mat" contype="0" conaffinity="0" fromto="0.1524 -0.0880 -0.55  0.1760 -0.0000 -0.55"/>
+      </body>
+    </body>
+  </worldbody>
+</mujoco>

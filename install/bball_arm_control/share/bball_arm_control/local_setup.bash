@@ -1,0 +1,1 @@
+/home/auric/ros2_ws/bball_arm_control/build/bball_arm_control/ament_cmake_environment_hooks/local_setup.bash

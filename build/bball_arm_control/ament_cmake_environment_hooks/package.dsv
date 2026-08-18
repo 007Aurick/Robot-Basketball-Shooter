@@ -1,0 +1,4 @@
+source;share/bball_arm_control/local_setup.bash
+source;share/bball_arm_control/local_setup.dsv
+source;share/bball_arm_control/local_setup.sh
+source;share/bball_arm_control/local_setup.zsh

@@ -24,6 +24,13 @@
     <material name="net_mat" rgba="1 1 1 0.95"/>
   </asset>
 
+  <!-- Lock ball to right hand. soft solref = less violent yank into a bent pose -->
+  <equality>
+    <weld name="ball_grip" body1="basketball" body2="right_wrist_yaw_link"
+          relpose="0.14 0.06 0.02 1 0 0 0" solref="0.02 1"/>
+  </equality>
+
+
   <worldbody>
     <light pos="0 -4 8" dir="0 0.15 -1" diffuse="1 1 1" specular="0.35 0.35 0.35"/>
     <light pos="5 2 6" dir="-0.4 -0.2 -1" diffuse="0.45 0.45 0.45"/>
@@ -167,7 +174,7 @@
     <geom name="hash_r_3" type="box" size="0.1500 0.0250 0.0020" pos="2.5885 -0.4140 0.0030" material="line_mat" contype="0" conaffinity="0"/>
 
     <!-- Bigger demo ball at free-throw line (still fits rim) -->
-    <body name="basketball" pos="0 -4.0720 0.2">
+    <body name="basketball" pos="0 -3.83 1.08">
       <freejoint/>
       <geom name="ball_geom" type="sphere" size="0.2" mass="0.8"
             material="ball_mat" friction="0.95 0.12 0.01"

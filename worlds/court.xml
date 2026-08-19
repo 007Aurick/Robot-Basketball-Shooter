@@ -1,6 +1,8 @@
+
 <mujoco model="basketball_court">
   <compiler angle="radian"/>
   <option gravity="0 0 -9.81" timestep="0.002"/>
+  <include file = "../mujoco_menagerie/unitree_g1/g1.xml" />
 
   <default>
     <geom friction="0.8 0.1 0.005" solref="0.01 1" solimp="0.9 0.95 0.001"/>

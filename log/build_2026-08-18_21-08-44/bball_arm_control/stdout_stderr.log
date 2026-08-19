@@ -1,0 +1,11 @@
+-- Install configuration: ""
+-- Execute custom install script
+-- Up-to-date symlink: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/court.xml
+[31mCMake Error at ament_cmake_symlink_install/ament_cmake_symlink_install.cmake:105 (message):
+  ament_cmake_symlink_install_directory() can't find
+  '/home/auric/ros2_ws/bball_arm_control/meshes'
+Call Stack (most recent call first):
+  ament_cmake_symlink_install/ament_cmake_symlink_install.cmake:319 (ament_cmake_symlink_install_directory)
+  cmake_install.cmake:46 (include)
+
+[0m

@@ -1,0 +1,4 @@
+Invoking command in '/home/auric/ros2_ws/bball_arm_control/build/bball_arm_control': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/auric/ros2_ws/bball_arm_control/build/bball_arm_control -- -j16 -l16
+Invoked command in '/home/auric/ros2_ws/bball_arm_control/build/bball_arm_control' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/auric/ros2_ws/bball_arm_control/build/bball_arm_control -- -j16 -l16
+Invoking command in '/home/auric/ros2_ws/bball_arm_control/build/bball_arm_control': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/auric/ros2_ws/bball_arm_control/build/bball_arm_control
+Invoked command in '/home/auric/ros2_ws/bball_arm_control/build/bball_arm_control' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/auric/ros2_ws/bball_arm_control/build/bball_arm_control

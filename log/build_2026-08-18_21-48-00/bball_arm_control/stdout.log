@@ -1,0 +1,69 @@
+-- Install configuration: ""
+-- Execute custom install script
+-- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/assets/head_link.STL
+-- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/assets/left_ankle_pitch_link.STL
+-- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/assets/left_ankle_roll_link.STL
+-- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/assets/left_elbow_link.STL
+-- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/assets/left_hand_index_0_link.STL
+-- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/assets/left_hand_index_1_link.STL
+-- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/assets/left_hand_middle_0_link.STL
+-- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/assets/left_hand_middle_1_link.STL
+-- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/assets/left_hand_palm_link.STL
+-- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/assets/left_hand_thumb_0_link.STL
+-- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/assets/left_hand_thumb_1_link.STL
+-- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/assets/left_hand_thumb_2_link.STL
+-- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/assets/left_hip_pitch_link.STL
+-- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/assets/left_hip_roll_link.STL
+-- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/assets/left_hip_yaw_link.STL
+-- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/assets/left_knee_link.STL
+-- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/assets/left_rubber_hand.STL
+-- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/assets/left_shoulder_pitch_link.STL
+-- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/assets/left_shoulder_roll_link.STL
+-- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/assets/left_shoulder_yaw_link.STL
+-- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/assets/left_wrist_pitch_link.STL
+-- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/assets/left_wrist_roll_link.STL
+-- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/assets/left_wrist_yaw_link.STL
+-- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/assets/logo_link.STL
+-- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/assets/pelvis.STL
+-- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/assets/pelvis_contour_link.STL
+-- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/assets/right_ankle_pitch_link.STL
+-- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/assets/right_ankle_roll_link.STL
+-- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/assets/right_elbow_link.STL
+-- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/assets/right_hand_index_0_link.STL
+-- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/assets/right_hand_index_1_link.STL
+-- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/assets/right_hand_middle_0_link.STL
+-- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/assets/right_hand_middle_1_link.STL
+-- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/assets/right_hand_palm_link.STL
+-- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/assets/right_hand_thumb_0_link.STL
+-- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/assets/right_hand_thumb_1_link.STL
+-- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/assets/right_hand_thumb_2_link.STL
+-- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/assets/right_hip_pitch_link.STL
+-- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/assets/right_hip_roll_link.STL
+-- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/assets/right_hip_yaw_link.STL
+-- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/assets/right_knee_link.STL
+-- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/assets/right_rubber_hand.STL
+-- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/assets/right_shoulder_pitch_link.STL
+-- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/assets/right_shoulder_roll_link.STL
+-- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/assets/right_shoulder_yaw_link.STL
+-- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/assets/right_wrist_pitch_link.STL
+-- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/assets/right_wrist_roll_link.STL
+-- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/assets/right_wrist_yaw_link.STL
+-- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/assets/torso_link_rev_1_0.STL
+-- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/assets/waist_roll_link_rev_1_0.STL
+-- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/assets/waist_yaw_link_rev_1_0.STL
+-- Up-to-date symlink: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/worlds/court.xml
+-- Up-to-date symlink: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/ament_index/resource_index/package_run_dependencies/bball_arm_control
+-- Up-to-date symlink: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/ament_index/resource_index/parent_prefix_path/bball_arm_control
+-- Up-to-date symlink: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/environment/ament_prefix_path.sh
+-- Up-to-date symlink: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/environment/ament_prefix_path.dsv
+-- Up-to-date symlink: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/environment/path.sh
+-- Up-to-date symlink: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/environment/path.dsv
+-- Up-to-date symlink: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/local_setup.bash
+-- Up-to-date symlink: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/local_setup.sh
+-- Up-to-date symlink: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/local_setup.zsh
+-- Up-to-date symlink: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/local_setup.dsv
+-- Symlinking: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/package.dsv
+-- Up-to-date symlink: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/ament_index/resource_index/packages/bball_arm_control
+-- Up-to-date symlink: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/cmake/bball_arm_controlConfig.cmake
+-- Up-to-date symlink: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/cmake/bball_arm_controlConfig-version.cmake
+-- Up-to-date symlink: /home/auric/ros2_ws/bball_arm_control/install/bball_arm_control/share/bball_arm_control/package.xml

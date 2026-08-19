@@ -1,6 +1,6 @@
-# 🏀 Basketball Free-Throw Robot Arm
+# 🏀 Basketball Robot Shooter 
 
-Simulated robot arm shooting basketball free throws in MuJoCo, controlled via ROS 2. Uses projectile motion to compute release angle/velocity, drives a prebuilt arm model through a throwing motion, and releases the ball to sink the shot. Built to learn MuJoCo + ROS 2 control.
+Simulated robot arm shooting basketball shots in MuJoCo, controlled via ROS 2. Uses projectile motion to compute release angle/velocity, drives a prebuilt arm model through a throwing motion, and releases the ball to sink the shot. Built to learn MuJoCo + ROS 2 control.
 
 ![MuJoCo](https://img.shields.io/badge/MuJoCo-Physics%20Sim-orange)
 ![ROS2](https://img.shields.io/badge/ROS2-Humble-blue)
@@ -9,7 +9,7 @@ Simulated robot arm shooting basketball free throws in MuJoCo, controlled via RO
 
 ## Overview
 
-This project simulates a robotic arm performing a basketball free throw entirely in physics simulation. Given a fixed distance and hoop height, the system computes the required release angle and velocity using projectile motion, then drives a robot arm through a throwing motion in [MuJoCo](https://mujoco.org/), releasing the ball at the correct point to sink the shot — all coordinated through [ROS 2](https://docs.ros.org/en/humble/index.html).
+This project simulates a robotic arm performing a basketball shot entirely in physics simulation. Given a fixed distance and hoop height, the system computes the required release angle and velocity using projectile motion, then drives a robot arm through a throwing motion in [MuJoCo](https://mujoco.org/), releasing the ball at the correct point to sink the shot — all coordinated through [ROS 2](https://docs.ros.org/en/humble/index.html).
 
 ## Features
 

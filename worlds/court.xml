@@ -24,13 +24,6 @@
     <material name="net_mat" rgba="1 1 1 0.95"/>
   </asset>
 
-  <!-- Lock ball to right hand. soft solref = less violent yank into a bent pose -->
-  <equality>
-    <weld name="ball_grip" body1="basketball" body2="right_wrist_yaw_link"
-          relpose="0.14 0.06 0.02 1 0 0 0" solref="0.02 1"/>
-  </equality>
-
-
   <worldbody>
     <light pos="0 -4 8" dir="0 0.15 -1" diffuse="1 1 1" specular="0.35 0.35 0.35"/>
     <light pos="5 2 6" dir="-0.4 -0.2 -1" diffuse="0.45 0.45 0.45"/>

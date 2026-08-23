@@ -44,7 +44,7 @@ WRISTS = [
 
 #Find the array slots once
 hold_q = {n: int(model.jnt_qposadr[model.joint(n).id]) for n in HOLD}#for each joint name in hold, model.joint(n) finds that joint by name and .id and model.jnt_qposad[joint_id] gives the starting index of that joint's value inside data.qpos
-hold_a = {n: model.actuator(n).id for n in HOLD}#for actuators, findds the motor that drives joint n and gets its index into data.ctrl
+hold_a = {n: model.actuator(n).id for n in HOLD}#for actuators, finds the motor that drives joint n and gets its index into data.ctrl
 wrist_q = [int(model.jnt_qposadr[model.joint(n).id]) for n in WRISTS]
 wrist_d = [int(model.jnt_dofadr[model.joint(n).id]) for n in WRISTS]
 wrist_a = [model.actuator(n).id for n in WRISTS]

@@ -76,11 +76,20 @@ def apply_hold_pose():
 
 
 apply_hold_pose()
+
+def throw_ball():
+
+    
+
+
 print("Holding. Close the window to quit.")
 
 with mujoco.viewer.launch_passive(model, data) as viewer:
-    while viewer.is_running():
-        apply_hold_pose()
+    t = 0.0
+    while viewer.is_running()
+        if t<1.0:
+            apply_hold_pose()
+            
         mujoco.mj_step(model, data)
         apply_hold_pose()
         viewer.sync()

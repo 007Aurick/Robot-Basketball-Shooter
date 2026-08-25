@@ -47,5 +47,13 @@ python free_throw_shooter.py
 ## Tags
 `#robotics` `#mujoco` `#humanoid` `#unitreeg1` `#simulation` `#basketball` `#roboticsengineering` `#physicssimulation` `#python` `#projectilemotion`
 
+## 🚀 Demo
+
+![Preview](https://img.youtube.com/vi/xAtxTEY/0.jpg)
+
+▶️ Full Demo: https://www.youtube.com/watch?v=xAtxTEY-L5U
+
 ## Author
-Built by [Your Name] — part of a summer robotics self-study project.
+
+**Aurick Anwar**
+

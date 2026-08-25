@@ -4,7 +4,6 @@ Simulated Unitree G1 humanoid sinking free throws and straight-on shots from the
 ![MuJoCo](https://img.shields.io/badge/MuJoCo-Physics%20Sim-orange)
 ![Python](https://img.shields.io/badge/Python-3.13-yellow)
 ![NumPy](https://img.shields.io/badge/NumPy-Math-013243)
-![Status](https://img.shields.io/badge/status-in%20progress-brightgreen)
 
 ## Overview
 This project simulates a Unitree G1 humanoid performing a basketball shot entirely in physics simulation. Given a fixed distance and hoop height, the system computes the required release angle and velocity using projectile motion, then drives the humanoid through a scripted throwing motion in [MuJoCo](https://mujoco.org/), releasing the ball at the correct point to sink the shot. Currently supports straight-on shots only — free throws and top-of-the-key attempts — as a baseline before adding richer court geometry.

@@ -33,6 +33,17 @@ HOLD = {#dict of joint names and target angles
     "right_shoulder_yaw_joint": 0.0,
     "right_elbow_joint": 1.00,
 }
+# Higher release / set-shot pose (arms up toward the hoop). Not wired in yet.
+SHOOT = {
+    "left_shoulder_pitch_joint": -1.10,
+    "left_shoulder_roll_joint": 0.20,
+    "left_shoulder_yaw_joint": 0.15,
+    "left_elbow_joint": 0.70,
+    "right_shoulder_pitch_joint": -1.10,
+    "right_shoulder_roll_joint": -0.20,
+    "right_shoulder_yaw_joint": -0.15,
+    "right_elbow_joint": 0.70,
+}
 WRISTS = [
     "left_wrist_roll_joint",
     "left_wrist_pitch_joint",
@@ -76,18 +87,45 @@ def apply_hold_pose():
     data.qvel[bv : bv + 6] = 0.0
 
 
-apply_hold_pose()
+def throw_ball_step():
+    # 1) clear hands  2) measure  3) speed + qvel  4) collisions last
+    data.qpos[bq + 1] += 0.25
 
-def throw_ball():
-print("Holding. Close the window to quit.")
+    ball_position = data.qpos[bq : bq + 3].copy()
+    hoop_position = np.array([0.0, 0.0, 3.20])
+    horizontal_distance = hoop_position[1] - ball_position[1]
+    height_difference = hoop_position[2] - ball_position[2]
+    gravity = 9.81
+    angle = np.deg2rad(50)
 
+    clear = horizontal_distance * np.tan(angle) - height_difference
+    if clear <= 0:
+        raise ValueError(
+            f"angle too flat for d={horizontal_distance:.2f}, h={height_difference:.2f}"
+        )
+
+    speed = np.sqrt(
+        gravity * horizontal_distance**2 / (2 * np.cos(angle)**2 * clear)
+    )
+    speed *= 1.08
+
+    data.qvel[bv : bv + 3] = [0.0, speed * np.cos(angle), speed * np.sin(angle)]
+    data.qvel[bv + 3 : bv + 6] = 0.0
+
+    model.geom_contype[gid] = 1
+    model.geom_conaffinity[gid] = 3  # hit world (1) + hanging net (2)
+
+
+released = False
 with mujoco.viewer.launch_passive(model, data) as viewer:
     t = 0.0
-    while viewer.is_running()
-        if t<1.0:
+    while viewer.is_running():
+        if t < 5.0:
             apply_hold_pose()
-            
+        elif not released:
+            throw_ball_step()
+            released = True
         mujoco.mj_step(model, data)
-        apply_hold_pose()
         viewer.sync()
+        t += model.opt.timestep
         time.sleep(model.opt.timestep)

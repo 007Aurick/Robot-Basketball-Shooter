@@ -252,42 +252,106 @@
         <geom name="rim_23" type="capsule" size="0.014" material="rim_mat" fromto="0.3091 -0.0828 0  0.3200 -0.0000 0"/>
         <geom name="rim_bracket" type="box" size="0.05 0.0900 0.012"
               pos="0 0.4100 0" material="rim_mat"/>
-        <geom name="net_0" type="capsule" size="0.008" material="net_mat" contype="0" conaffinity="0" fromto="0.3200 0.0000 0  0.1760 0.0000 -0.55"/>
-        <geom name="net_1" type="capsule" size="0.008" material="net_mat" contype="0" conaffinity="0" fromto="0.2771 0.1600 0  0.1524 0.0880 -0.55"/>
-        <geom name="net_2" type="capsule" size="0.008" material="net_mat" contype="0" conaffinity="0" fromto="0.1600 0.2771 0  0.0880 0.1524 -0.55"/>
-        <geom name="net_3" type="capsule" size="0.008" material="net_mat" contype="0" conaffinity="0" fromto="0.0000 0.3200 0  0.0000 0.1760 -0.55"/>
-        <geom name="net_4" type="capsule" size="0.008" material="net_mat" contype="0" conaffinity="0" fromto="-0.1600 0.2771 0  -0.0880 0.1524 -0.55"/>
-        <geom name="net_5" type="capsule" size="0.008" material="net_mat" contype="0" conaffinity="0" fromto="-0.2771 0.1600 0  -0.1524 0.0880 -0.55"/>
-        <geom name="net_6" type="capsule" size="0.008" material="net_mat" contype="0" conaffinity="0" fromto="-0.3200 0.0000 0  -0.1760 0.0000 -0.55"/>
-        <geom name="net_7" type="capsule" size="0.008" material="net_mat" contype="0" conaffinity="0" fromto="-0.2771 -0.1600 0  -0.1524 -0.0880 -0.55"/>
-        <geom name="net_8" type="capsule" size="0.008" material="net_mat" contype="0" conaffinity="0" fromto="-0.1600 -0.2771 0  -0.0880 -0.1524 -0.55"/>
-        <geom name="net_9" type="capsule" size="0.008" material="net_mat" contype="0" conaffinity="0" fromto="-0.0000 -0.3200 0  -0.0000 -0.1760 -0.55"/>
-        <geom name="net_10" type="capsule" size="0.008" material="net_mat" contype="0" conaffinity="0" fromto="0.1600 -0.2771 0  0.0880 -0.1524 -0.55"/>
-        <geom name="net_11" type="capsule" size="0.008" material="net_mat" contype="0" conaffinity="0" fromto="0.2771 -0.1600 0  0.1524 -0.0880 -0.55"/>
-        <geom name="net_mid_0" type="capsule" size="0.006" material="net_mat" contype="0" conaffinity="0" fromto="0.2624 0.0000 -0.22  0.2272 0.1312 -0.22"/>
-        <geom name="net_mid_1" type="capsule" size="0.006" material="net_mat" contype="0" conaffinity="0" fromto="0.2272 0.1312 -0.22  0.1312 0.2272 -0.22"/>
-        <geom name="net_mid_2" type="capsule" size="0.006" material="net_mat" contype="0" conaffinity="0" fromto="0.1312 0.2272 -0.22  0.0000 0.2624 -0.22"/>
-        <geom name="net_mid_3" type="capsule" size="0.006" material="net_mat" contype="0" conaffinity="0" fromto="0.0000 0.2624 -0.22  -0.1312 0.2272 -0.22"/>
-        <geom name="net_mid_4" type="capsule" size="0.006" material="net_mat" contype="0" conaffinity="0" fromto="-0.1312 0.2272 -0.22  -0.2272 0.1312 -0.22"/>
-        <geom name="net_mid_5" type="capsule" size="0.006" material="net_mat" contype="0" conaffinity="0" fromto="-0.2272 0.1312 -0.22  -0.2624 0.0000 -0.22"/>
-        <geom name="net_mid_6" type="capsule" size="0.006" material="net_mat" contype="0" conaffinity="0" fromto="-0.2624 0.0000 -0.22  -0.2272 -0.1312 -0.22"/>
-        <geom name="net_mid_7" type="capsule" size="0.006" material="net_mat" contype="0" conaffinity="0" fromto="-0.2272 -0.1312 -0.22  -0.1312 -0.2272 -0.22"/>
-        <geom name="net_mid_8" type="capsule" size="0.006" material="net_mat" contype="0" conaffinity="0" fromto="-0.1312 -0.2272 -0.22  -0.0000 -0.2624 -0.22"/>
-        <geom name="net_mid_9" type="capsule" size="0.006" material="net_mat" contype="0" conaffinity="0" fromto="-0.0000 -0.2624 -0.22  0.1312 -0.2272 -0.22"/>
-        <geom name="net_mid_10" type="capsule" size="0.006" material="net_mat" contype="0" conaffinity="0" fromto="0.1312 -0.2272 -0.22  0.2272 -0.1312 -0.22"/>
-        <geom name="net_mid_11" type="capsule" size="0.006" material="net_mat" contype="0" conaffinity="0" fromto="0.2272 -0.1312 -0.22  0.2624 -0.0000 -0.22"/>
-        <geom name="net_bot_0" type="capsule" size="0.006" material="net_mat" contype="0" conaffinity="0" fromto="0.1760 0.0000 -0.55  0.1524 0.0880 -0.55"/>
-        <geom name="net_bot_1" type="capsule" size="0.006" material="net_mat" contype="0" conaffinity="0" fromto="0.1524 0.0880 -0.55  0.0880 0.1524 -0.55"/>
-        <geom name="net_bot_2" type="capsule" size="0.006" material="net_mat" contype="0" conaffinity="0" fromto="0.0880 0.1524 -0.55  0.0000 0.1760 -0.55"/>
-        <geom name="net_bot_3" type="capsule" size="0.006" material="net_mat" contype="0" conaffinity="0" fromto="0.0000 0.1760 -0.55  -0.0880 0.1524 -0.55"/>
-        <geom name="net_bot_4" type="capsule" size="0.006" material="net_mat" contype="0" conaffinity="0" fromto="-0.0880 0.1524 -0.55  -0.1524 0.0880 -0.55"/>
-        <geom name="net_bot_5" type="capsule" size="0.006" material="net_mat" contype="0" conaffinity="0" fromto="-0.1524 0.0880 -0.55  -0.1760 0.0000 -0.55"/>
-        <geom name="net_bot_6" type="capsule" size="0.006" material="net_mat" contype="0" conaffinity="0" fromto="-0.1760 0.0000 -0.55  -0.1524 -0.0880 -0.55"/>
-        <geom name="net_bot_7" type="capsule" size="0.006" material="net_mat" contype="0" conaffinity="0" fromto="-0.1524 -0.0880 -0.55  -0.0880 -0.1524 -0.55"/>
-        <geom name="net_bot_8" type="capsule" size="0.006" material="net_mat" contype="0" conaffinity="0" fromto="-0.0880 -0.1524 -0.55  -0.0000 -0.1760 -0.55"/>
-        <geom name="net_bot_9" type="capsule" size="0.006" material="net_mat" contype="0" conaffinity="0" fromto="-0.0000 -0.1760 -0.55  0.0880 -0.1524 -0.55"/>
-        <geom name="net_bot_10" type="capsule" size="0.006" material="net_mat" contype="0" conaffinity="0" fromto="0.0880 -0.1524 -0.55  0.1524 -0.0880 -0.55"/>
-        <geom name="net_bot_11" type="capsule" size="0.006" material="net_mat" contype="0" conaffinity="0" fromto="0.1524 -0.0880 -0.55  0.1760 -0.0000 -0.55"/>
+        <!-- Same net look; whole basket sways when ball hits invisible net colliders -->
+        <!-- Classic net visuals + soft sway when ball brushes colliders -->
+        <!-- Classic net look; sways via script when ball goes through rim -->
+        <!-- Dynamic hanging net (ball pushes strands) -->
+        <body name="net_s0_a" pos="0.3000 0.0000 0.0000">
+          <joint name="net_s0_a_j" type="hinge" axis="-0.0000 1.0000 0" range="-1.4 1.4" damping="0.03" stiffness="0.6" springref="0" armature="0.0001"/>
+          <geom name="net_s0_a_g" type="capsule" size="0.006" mass="0.01" material="net_mat" contype="2" conaffinity="1" friction="0.3 0.01 0.0001" solref="0.015 1" fromto="0 0 0  -0.1300 0.0000 -0.2600"/>
+          <body name="net_s0_b" pos="-0.1300 0.0000 -0.2600">
+            <joint name="net_s0_b_j" type="hinge" axis="-0.0000 1.0000 0" range="-1.6 1.6" damping="0.025" stiffness="0.35" springref="0" armature="0.0001"/>
+            <geom name="net_s0_b_g" type="capsule" size="0.0055" mass="0.008" material="net_mat" contype="2" conaffinity="1" friction="0.3 0.01 0.0001" solref="0.015 1" fromto="0 0 0  -0.0700 0.0000 -0.2600"/>
+          </body>
+        </body>
+        <body name="net_s1_a" pos="0.2598 0.1500 0.0000">
+          <joint name="net_s1_a_j" type="hinge" axis="-0.5000 0.8660 0" range="-1.4 1.4" damping="0.03" stiffness="0.6" springref="0" armature="0.0001"/>
+          <geom name="net_s1_a_g" type="capsule" size="0.006" mass="0.01" material="net_mat" contype="2" conaffinity="1" friction="0.3 0.01 0.0001" solref="0.015 1" fromto="0 0 0  -0.1126 -0.0650 -0.2600"/>
+          <body name="net_s1_b" pos="-0.1126 -0.0650 -0.2600">
+            <joint name="net_s1_b_j" type="hinge" axis="-0.5000 0.8660 0" range="-1.6 1.6" damping="0.025" stiffness="0.35" springref="0" armature="0.0001"/>
+            <geom name="net_s1_b_g" type="capsule" size="0.0055" mass="0.008" material="net_mat" contype="2" conaffinity="1" friction="0.3 0.01 0.0001" solref="0.015 1" fromto="0 0 0  -0.0606 -0.0350 -0.2600"/>
+          </body>
+        </body>
+        <body name="net_s2_a" pos="0.1500 0.2598 0.0000">
+          <joint name="net_s2_a_j" type="hinge" axis="-0.8660 0.5000 0" range="-1.4 1.4" damping="0.03" stiffness="0.6" springref="0" armature="0.0001"/>
+          <geom name="net_s2_a_g" type="capsule" size="0.006" mass="0.01" material="net_mat" contype="2" conaffinity="1" friction="0.3 0.01 0.0001" solref="0.015 1" fromto="0 0 0  -0.0650 -0.1126 -0.2600"/>
+          <body name="net_s2_b" pos="-0.0650 -0.1126 -0.2600">
+            <joint name="net_s2_b_j" type="hinge" axis="-0.8660 0.5000 0" range="-1.6 1.6" damping="0.025" stiffness="0.35" springref="0" armature="0.0001"/>
+            <geom name="net_s2_b_g" type="capsule" size="0.0055" mass="0.008" material="net_mat" contype="2" conaffinity="1" friction="0.3 0.01 0.0001" solref="0.015 1" fromto="0 0 0  -0.0350 -0.0606 -0.2600"/>
+          </body>
+        </body>
+        <body name="net_s3_a" pos="0.0000 0.3000 0.0000">
+          <joint name="net_s3_a_j" type="hinge" axis="-1.0000 0.0000 0" range="-1.4 1.4" damping="0.03" stiffness="0.6" springref="0" armature="0.0001"/>
+          <geom name="net_s3_a_g" type="capsule" size="0.006" mass="0.01" material="net_mat" contype="2" conaffinity="1" friction="0.3 0.01 0.0001" solref="0.015 1" fromto="0 0 0  -0.0000 -0.1300 -0.2600"/>
+          <body name="net_s3_b" pos="-0.0000 -0.1300 -0.2600">
+            <joint name="net_s3_b_j" type="hinge" axis="-1.0000 0.0000 0" range="-1.6 1.6" damping="0.025" stiffness="0.35" springref="0" armature="0.0001"/>
+            <geom name="net_s3_b_g" type="capsule" size="0.0055" mass="0.008" material="net_mat" contype="2" conaffinity="1" friction="0.3 0.01 0.0001" solref="0.015 1" fromto="0 0 0  -0.0000 -0.0700 -0.2600"/>
+          </body>
+        </body>
+        <body name="net_s4_a" pos="-0.1500 0.2598 0.0000">
+          <joint name="net_s4_a_j" type="hinge" axis="-0.8660 -0.5000 0" range="-1.4 1.4" damping="0.03" stiffness="0.6" springref="0" armature="0.0001"/>
+          <geom name="net_s4_a_g" type="capsule" size="0.006" mass="0.01" material="net_mat" contype="2" conaffinity="1" friction="0.3 0.01 0.0001" solref="0.015 1" fromto="0 0 0  0.0650 -0.1126 -0.2600"/>
+          <body name="net_s4_b" pos="0.0650 -0.1126 -0.2600">
+            <joint name="net_s4_b_j" type="hinge" axis="-0.8660 -0.5000 0" range="-1.6 1.6" damping="0.025" stiffness="0.35" springref="0" armature="0.0001"/>
+            <geom name="net_s4_b_g" type="capsule" size="0.0055" mass="0.008" material="net_mat" contype="2" conaffinity="1" friction="0.3 0.01 0.0001" solref="0.015 1" fromto="0 0 0  0.0350 -0.0606 -0.2600"/>
+          </body>
+        </body>
+        <body name="net_s5_a" pos="-0.2598 0.1500 0.0000">
+          <joint name="net_s5_a_j" type="hinge" axis="-0.5000 -0.8660 0" range="-1.4 1.4" damping="0.03" stiffness="0.6" springref="0" armature="0.0001"/>
+          <geom name="net_s5_a_g" type="capsule" size="0.006" mass="0.01" material="net_mat" contype="2" conaffinity="1" friction="0.3 0.01 0.0001" solref="0.015 1" fromto="0 0 0  0.1126 -0.0650 -0.2600"/>
+          <body name="net_s5_b" pos="0.1126 -0.0650 -0.2600">
+            <joint name="net_s5_b_j" type="hinge" axis="-0.5000 -0.8660 0" range="-1.6 1.6" damping="0.025" stiffness="0.35" springref="0" armature="0.0001"/>
+            <geom name="net_s5_b_g" type="capsule" size="0.0055" mass="0.008" material="net_mat" contype="2" conaffinity="1" friction="0.3 0.01 0.0001" solref="0.015 1" fromto="0 0 0  0.0606 -0.0350 -0.2600"/>
+          </body>
+        </body>
+        <body name="net_s6_a" pos="-0.3000 0.0000 0.0000">
+          <joint name="net_s6_a_j" type="hinge" axis="-0.0000 -1.0000 0" range="-1.4 1.4" damping="0.03" stiffness="0.6" springref="0" armature="0.0001"/>
+          <geom name="net_s6_a_g" type="capsule" size="0.006" mass="0.01" material="net_mat" contype="2" conaffinity="1" friction="0.3 0.01 0.0001" solref="0.015 1" fromto="0 0 0  0.1300 -0.0000 -0.2600"/>
+          <body name="net_s6_b" pos="0.1300 -0.0000 -0.2600">
+            <joint name="net_s6_b_j" type="hinge" axis="-0.0000 -1.0000 0" range="-1.6 1.6" damping="0.025" stiffness="0.35" springref="0" armature="0.0001"/>
+            <geom name="net_s6_b_g" type="capsule" size="0.0055" mass="0.008" material="net_mat" contype="2" conaffinity="1" friction="0.3 0.01 0.0001" solref="0.015 1" fromto="0 0 0  0.0700 -0.0000 -0.2600"/>
+          </body>
+        </body>
+        <body name="net_s7_a" pos="-0.2598 -0.1500 0.0000">
+          <joint name="net_s7_a_j" type="hinge" axis="0.5000 -0.8660 0" range="-1.4 1.4" damping="0.03" stiffness="0.6" springref="0" armature="0.0001"/>
+          <geom name="net_s7_a_g" type="capsule" size="0.006" mass="0.01" material="net_mat" contype="2" conaffinity="1" friction="0.3 0.01 0.0001" solref="0.015 1" fromto="0 0 0  0.1126 0.0650 -0.2600"/>
+          <body name="net_s7_b" pos="0.1126 0.0650 -0.2600">
+            <joint name="net_s7_b_j" type="hinge" axis="0.5000 -0.8660 0" range="-1.6 1.6" damping="0.025" stiffness="0.35" springref="0" armature="0.0001"/>
+            <geom name="net_s7_b_g" type="capsule" size="0.0055" mass="0.008" material="net_mat" contype="2" conaffinity="1" friction="0.3 0.01 0.0001" solref="0.015 1" fromto="0 0 0  0.0606 0.0350 -0.2600"/>
+          </body>
+        </body>
+        <body name="net_s8_a" pos="-0.1500 -0.2598 0.0000">
+          <joint name="net_s8_a_j" type="hinge" axis="0.8660 -0.5000 0" range="-1.4 1.4" damping="0.03" stiffness="0.6" springref="0" armature="0.0001"/>
+          <geom name="net_s8_a_g" type="capsule" size="0.006" mass="0.01" material="net_mat" contype="2" conaffinity="1" friction="0.3 0.01 0.0001" solref="0.015 1" fromto="0 0 0  0.0650 0.1126 -0.2600"/>
+          <body name="net_s8_b" pos="0.0650 0.1126 -0.2600">
+            <joint name="net_s8_b_j" type="hinge" axis="0.8660 -0.5000 0" range="-1.6 1.6" damping="0.025" stiffness="0.35" springref="0" armature="0.0001"/>
+            <geom name="net_s8_b_g" type="capsule" size="0.0055" mass="0.008" material="net_mat" contype="2" conaffinity="1" friction="0.3 0.01 0.0001" solref="0.015 1" fromto="0 0 0  0.0350 0.0606 -0.2600"/>
+          </body>
+        </body>
+        <body name="net_s9_a" pos="-0.0000 -0.3000 0.0000">
+          <joint name="net_s9_a_j" type="hinge" axis="1.0000 -0.0000 0" range="-1.4 1.4" damping="0.03" stiffness="0.6" springref="0" armature="0.0001"/>
+          <geom name="net_s9_a_g" type="capsule" size="0.006" mass="0.01" material="net_mat" contype="2" conaffinity="1" friction="0.3 0.01 0.0001" solref="0.015 1" fromto="0 0 0  0.0000 0.1300 -0.2600"/>
+          <body name="net_s9_b" pos="0.0000 0.1300 -0.2600">
+            <joint name="net_s9_b_j" type="hinge" axis="1.0000 -0.0000 0" range="-1.6 1.6" damping="0.025" stiffness="0.35" springref="0" armature="0.0001"/>
+            <geom name="net_s9_b_g" type="capsule" size="0.0055" mass="0.008" material="net_mat" contype="2" conaffinity="1" friction="0.3 0.01 0.0001" solref="0.015 1" fromto="0 0 0  0.0000 0.0700 -0.2600"/>
+          </body>
+        </body>
+        <body name="net_s10_a" pos="0.1500 -0.2598 0.0000">
+          <joint name="net_s10_a_j" type="hinge" axis="0.8660 0.5000 0" range="-1.4 1.4" damping="0.03" stiffness="0.6" springref="0" armature="0.0001"/>
+          <geom name="net_s10_a_g" type="capsule" size="0.006" mass="0.01" material="net_mat" contype="2" conaffinity="1" friction="0.3 0.01 0.0001" solref="0.015 1" fromto="0 0 0  -0.0650 0.1126 -0.2600"/>
+          <body name="net_s10_b" pos="-0.0650 0.1126 -0.2600">
+            <joint name="net_s10_b_j" type="hinge" axis="0.8660 0.5000 0" range="-1.6 1.6" damping="0.025" stiffness="0.35" springref="0" armature="0.0001"/>
+            <geom name="net_s10_b_g" type="capsule" size="0.0055" mass="0.008" material="net_mat" contype="2" conaffinity="1" friction="0.3 0.01 0.0001" solref="0.015 1" fromto="0 0 0  -0.0350 0.0606 -0.2600"/>
+          </body>
+        </body>
+        <body name="net_s11_a" pos="0.2598 -0.1500 0.0000">
+          <joint name="net_s11_a_j" type="hinge" axis="0.5000 0.8660 0" range="-1.4 1.4" damping="0.03" stiffness="0.6" springref="0" armature="0.0001"/>
+          <geom name="net_s11_a_g" type="capsule" size="0.006" mass="0.01" material="net_mat" contype="2" conaffinity="1" friction="0.3 0.01 0.0001" solref="0.015 1" fromto="0 0 0  -0.1126 0.0650 -0.2600"/>
+          <body name="net_s11_b" pos="-0.1126 0.0650 -0.2600">
+            <joint name="net_s11_b_j" type="hinge" axis="0.5000 0.8660 0" range="-1.6 1.6" damping="0.025" stiffness="0.35" springref="0" armature="0.0001"/>
+            <geom name="net_s11_b_g" type="capsule" size="0.0055" mass="0.008" material="net_mat" contype="2" conaffinity="1" friction="0.3 0.01 0.0001" solref="0.015 1" fromto="0 0 0  -0.0606 0.0350 -0.2600"/>
+          </body>
+        </body>
       </body>
     </body>
   </worldbody>

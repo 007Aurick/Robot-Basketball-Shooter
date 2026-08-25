@@ -1,29 +1,29 @@
-"""Just hold the ball in front of the chest. Wrists straight. No throw."""
+"""Hold ball, shoot pose, throw once from the free-throw line."""
 import time
 from pathlib import Path
 
 import mujoco
 import mujoco.viewer
 import numpy as np
+import random
 
 scene = Path(__file__).resolve().parent.parent / "worlds" / "court.xml"
 print("Loading", scene)
 model = mujoco.MjModel.from_xml_path(str(scene))
-data = mujoco.MjData(model)#live sim state, 
+data = mujoco.MjData(model)
 
 # Ball does not collide while held (stops it from shoving the wrists).
-gid = model.geom("ball_geom").id #id of the ball in XML
-model.geom_contype[gid] = 0#ball has no collision type
-model.geom_conaffinity[gid] = 0#ball won't collide with anyone else's types
+gid = model.geom("ball_geom").id
+model.geom_contype[gid] = 0
+model.geom_conaffinity[gid] = 0
 
 # Free-throw line, facing hoop.
-mujoco.mj_resetDataKeyframe(model, data, 0)#loads a saved pose from the model into the live sim
-data.qpos[0:3] = [0.0, -4.17, 0.793]#puts the robot in the free-throw line facing the hoop
-data.qpos[3:7] = [0.70710678, 0.0, 0.0, 0.70710678]#puts the robot in the free-throw line facing the hoop
-data.ctrl[:] = model.key_ctrl[0]#list of motor actuator commands = saved stand targets
+mujoco.mj_resetDataKeyframe(model, data, 0)
+data.qpos[0:3] = [0.0, -4.17, 0.793]
+data.qpos[3:7] = [0.70710678, 0.0, 0.0, 0.70710678]
+data.ctrl[:] = model.key_ctrl[0]
 
-# Arms forward, hands close enough to sandwich the ball (r=0.2 → ~0.4m apart).
-HOLD = {#dict of joint names and target angles
+HOLD = {
     "left_shoulder_pitch_joint": -0.60,
     "left_shoulder_roll_joint": 0.25,
     "left_shoulder_yaw_joint": 0.0,
@@ -33,7 +33,6 @@ HOLD = {#dict of joint names and target angles
     "right_shoulder_yaw_joint": 0.0,
     "right_elbow_joint": 1.00,
 }
-# Higher release / set-shot pose (arms up toward the hoop). Not wired in yet.
 SHOOT = {
     "left_shoulder_pitch_joint": -1.10,
     "left_shoulder_roll_joint": 0.38,
@@ -53,9 +52,8 @@ WRISTS = [
     "right_wrist_yaw_joint",
 ]
 
-#Find the array slots once
-hold_q = {n: int(model.jnt_qposadr[model.joint(n).id]) for n in HOLD}#for each joint name in hold, model.joint(n) finds that joint by name and .id and model.jnt_qposad[joint_id] gives the starting index of that joint's value inside data.qpos
-hold_a = {n: model.actuator(n).id for n in HOLD}#for actuators, finds the motor that drives joint n and gets its index into data.ctrl
+hold_q = {n: int(model.jnt_qposadr[model.joint(n).id]) for n in HOLD}
+hold_a = {n: model.actuator(n).id for n in HOLD}
 wrist_q = [int(model.jnt_qposadr[model.joint(n).id]) for n in WRISTS]
 wrist_d = [int(model.jnt_dofadr[model.joint(n).id]) for n in WRISTS]
 wrist_a = [model.actuator(n).id for n in WRISTS]
@@ -79,7 +77,6 @@ def apply_hold_pose():
     data.qvel[0:6] = 0.0
     mujoco.mj_forward(model, data)
 
-    # Ball centered between the palms.
     rw = data.body("right_wrist_yaw_link")
     lw = data.body("left_wrist_yaw_link")
     palm_r = rw.xpos + rw.xmat.reshape(3, 3) @ np.array([0.08, 0.0, 0.0])
@@ -87,6 +84,7 @@ def apply_hold_pose():
     data.qpos[bq : bq + 3] = 0.5 * (palm_r + palm_l)
     data.qpos[bq + 3 : bq + 7] = [1.0, 0.0, 0.0, 0.0]
     data.qvel[bv : bv + 6] = 0.0
+
 
 def apply_shoot_pose():
     data.ctrl[:] = model.key_ctrl[0]
@@ -100,7 +98,6 @@ def apply_shoot_pose():
     data.qvel[0:6] = 0.0
     mujoco.mj_forward(model, data)
 
-    # Ball centered between the palms.
     rw = data.body("right_wrist_yaw_link")
     lw = data.body("left_wrist_yaw_link")
     palm_r = rw.xpos + rw.xmat.reshape(3, 3) @ np.array([0.08, 0.0, 0.0])
@@ -108,8 +105,9 @@ def apply_shoot_pose():
     data.qpos[bq : bq + 3] = 0.5 * (palm_r + palm_l)
     data.qpos[bq + 3 : bq + 7] = [1.0, 0.0, 0.0, 0.0]
     data.qvel[bv : bv + 6] = 0.0
+
+
 def throw_ball_step():
-    # 1) clear hands  2) measure  3) speed + qvel  4) collisions last
     data.qpos[bq + 1] += 0.25
 
     ball_position = data.qpos[bq : bq + 3].copy()
@@ -134,7 +132,7 @@ def throw_ball_step():
     data.qvel[bv + 3 : bv + 6] = 0.0
 
     model.geom_contype[gid] = 1
-    model.geom_conaffinity[gid] = 3  # hit world (1) + hanging net (2)
+    model.geom_conaffinity[gid] = 3
 
 
 released = False
@@ -143,13 +141,25 @@ with mujoco.viewer.launch_passive(model, data) as viewer:
     t = 0.0
 
     while viewer.is_running():
-        if t < 10.0:
+        if t < 3.0:
             apply_hold_pose()
-        elif t < 11.0:
+        elif t < 4.0:
             apply_shoot_pose()
         elif not released:
             throw_ball_step()
             released = True
+        elif t > 6.0:
+            # Straight on only — vary depth from short midrange out to 3PT (~-7.24)
+            x = 0.0
+            y = random.uniform(-9.0, -3.5)
+            data.qpos[0:3] = [x, y, 0.793]
+            data.qpos[3:7] = [0.70710678, 0.0, 0.0, 0.70710678]
+            data.qvel[0:6] = 0.0
+            model.geom_contype[gid] = 0
+            model.geom_conaffinity[gid] = 0
+            released = False
+            t = 0.0
+            continue
 
         mujoco.mj_step(model, data)
         viewer.sync()

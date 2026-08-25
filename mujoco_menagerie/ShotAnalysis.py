@@ -55,7 +55,7 @@ WRISTS = [
 
 #Find the array slots once
 hold_q = {n: int(model.jnt_qposadr[model.joint(n).id]) for n in HOLD}#for each joint name in hold, model.joint(n) finds that joint by name and .id and model.jnt_qposad[joint_id] gives the starting index of that joint's value inside data.qpos
-hold_a = {n: model.actuator(n).id for n in HOLD}#for actuators, findds the motor that drives joint n and gets its index into data.ctrl
+hold_a = {n: model.actuator(n).id for n in HOLD}#for actuators, finds the motor that drives joint n and gets its index into data.ctrl
 wrist_q = [int(model.jnt_qposadr[model.joint(n).id]) for n in WRISTS]
 wrist_d = [int(model.jnt_dofadr[model.joint(n).id]) for n in WRISTS]
 wrist_a = [model.actuator(n).id for n in WRISTS]
@@ -138,16 +138,19 @@ def throw_ball_step():
 
 
 released = False
+
 with mujoco.viewer.launch_passive(model, data) as viewer:
     t = 0.0
+
     while viewer.is_running():
-        if t < 5.0:
+        if t < 10.0:
             apply_hold_pose()
-        elif t<7.0:
+        elif t < 11.0:
             apply_shoot_pose()
         elif not released:
             throw_ball_step()
             released = True
+
         mujoco.mj_step(model, data)
         viewer.sync()
         t += model.opt.timestep

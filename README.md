@@ -49,7 +49,7 @@ python free_throw_shooter.py
 
 ## 🚀 Demo
 
-![Preview](https://img.youtube.com/vi/xAtxTEY/0.jpg)
+![Preview](https://img.youtube.com/vi/xAtxTEY-L5U/0.jpg)
 
 ▶️ Full Demo: https://www.youtube.com/watch?v=xAtxTEY-L5U
 

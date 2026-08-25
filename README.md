@@ -2,7 +2,7 @@
 Simulated Unitree G1 humanoid sinking free throws and straight-on shots from the top of the key in MuJoCo. Uses projectile motion to compute release angle/velocity, drives the humanoid through a scripted throwing motion, and releases the ball at the right instant to sink the shot. Built to learn MuJoCo + humanoid control.
 
 ![MuJoCo](https://img.shields.io/badge/MuJoCo-Physics%20Sim-orange)
-![Python](https://img.shields.io/badge/Python-3.x-yellow)
+![Python](https://img.shields.io/badge/Python-3.13-yellow)
 ![NumPy](https://img.shields.io/badge/NumPy-Math-013243)
 ![Status](https://img.shields.io/badge/status-in%20progress-brightgreen)
 

@@ -36,11 +36,11 @@ HOLD = {#dict of joint names and target angles
 # Higher release / set-shot pose (arms up toward the hoop). Not wired in yet.
 SHOOT = {
     "left_shoulder_pitch_joint": -1.10,
-    "left_shoulder_roll_joint": 0.20,
+    "left_shoulder_roll_joint": 0.38,
     "left_shoulder_yaw_joint": 0.15,
     "left_elbow_joint": 0.70,
     "right_shoulder_pitch_joint": -1.10,
-    "right_shoulder_roll_joint": -0.20,
+    "right_shoulder_roll_joint": -0.38,
     "right_shoulder_yaw_joint": -0.15,
     "right_elbow_joint": 0.70,
 }
@@ -55,10 +55,12 @@ WRISTS = [
 
 #Find the array slots once
 hold_q = {n: int(model.jnt_qposadr[model.joint(n).id]) for n in HOLD}#for each joint name in hold, model.joint(n) finds that joint by name and .id and model.jnt_qposad[joint_id] gives the starting index of that joint's value inside data.qpos
-hold_a = {n: model.actuator(n).id for n in HOLD}#for actuators, finds the motor that drives joint n and gets its index into data.ctrl
+hold_a = {n: model.actuator(n).id for n in HOLD}#for actuators, findds the motor that drives joint n and gets its index into data.ctrl
 wrist_q = [int(model.jnt_qposadr[model.joint(n).id]) for n in WRISTS]
 wrist_d = [int(model.jnt_dofadr[model.joint(n).id]) for n in WRISTS]
 wrist_a = [model.actuator(n).id for n in WRISTS]
+shoot_q = {n: int(model.jnt_qposadr[model.joint(n).id]) for n in SHOOT}
+shoot_a = {n: model.actuator(n).id for n in SHOOT}
 
 bj = int(model.body_jntadr[model.body("basketball").id])
 bq = int(model.jnt_qposadr[bj])
@@ -86,7 +88,26 @@ def apply_hold_pose():
     data.qpos[bq + 3 : bq + 7] = [1.0, 0.0, 0.0, 0.0]
     data.qvel[bv : bv + 6] = 0.0
 
+def apply_shoot_pose():
+    data.ctrl[:] = model.key_ctrl[0]
+    for n, ang in SHOOT.items():
+        data.qpos[shoot_q[n]] = ang
+        data.ctrl[shoot_a[n]] = ang
+    for i, a in enumerate(wrist_a):
+        data.qpos[wrist_q[i]] = 0.0
+        data.qvel[wrist_d[i]] = 0.0
+        data.ctrl[a] = 0.0
+    data.qvel[0:6] = 0.0
+    mujoco.mj_forward(model, data)
 
+    # Ball centered between the palms.
+    rw = data.body("right_wrist_yaw_link")
+    lw = data.body("left_wrist_yaw_link")
+    palm_r = rw.xpos + rw.xmat.reshape(3, 3) @ np.array([0.08, 0.0, 0.0])
+    palm_l = lw.xpos + lw.xmat.reshape(3, 3) @ np.array([0.08, 0.0, 0.0])
+    data.qpos[bq : bq + 3] = 0.5 * (palm_r + palm_l)
+    data.qpos[bq + 3 : bq + 7] = [1.0, 0.0, 0.0, 0.0]
+    data.qvel[bv : bv + 6] = 0.0
 def throw_ball_step():
     # 1) clear hands  2) measure  3) speed + qvel  4) collisions last
     data.qpos[bq + 1] += 0.25
@@ -122,6 +143,8 @@ with mujoco.viewer.launch_passive(model, data) as viewer:
     while viewer.is_running():
         if t < 5.0:
             apply_hold_pose()
+        elif t<7.0:
+            apply_shoot_pose()
         elif not released:
             throw_ball_step()
             released = True
